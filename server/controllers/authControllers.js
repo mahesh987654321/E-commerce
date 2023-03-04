@@ -74,9 +74,9 @@ export const loginController = async (req, res, next) => {
     }
     const isPasswordValid = await user.comparePassword(password, user.password);
     if (!isPasswordValid) {
-      return res.status(200).send({
+      return res.status(401).send({
         success: false,
-        message: "Invalid  password",
+        message: "Invalid password",
       });
     }
     const token = await jwt.sign({ _id: user._id }, process.env.JWT_KEY, {

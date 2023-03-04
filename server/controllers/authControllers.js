@@ -1,4 +1,4 @@
-import { hashPassword } from "../helpers/authHelper.js";
+import { hashPassword, comparePassword } from "../helpers/authHelper.js";
 import userModels from "../models/userModels.js";
 import jwt from "jsonwebtoken";
 export const registerController = async (req, res, next) => {
@@ -72,7 +72,7 @@ export const loginController = async (req, res, next) => {
         message: "Email is not available",
       });
     }
-    const isPasswordValid = await user.comparePassword(password, user.password);
+    const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).send({
         success: false,

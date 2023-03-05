@@ -1,10 +1,8 @@
-import React from 'react'
-import Layout from '../../components/Layout/Layout'
+import React from "react";
+import Layout from "../../components/Layout/Layout";
 
 const Register = () => {
-  return (
-    <Layout>Register</Layout>
-  )
-}
+  return <Layout title={"Register"}>Register</Layout>;
+};
 
-export default Register
+export default Register;

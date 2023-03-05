@@ -25,7 +25,8 @@
 }
 
 .active {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
+  color: rgb(150, 43, 222)!important;
 }
 
 .navbar-brand {
@@ -33,7 +34,11 @@
   font-family: "roboto", sans-serif;
   letter-spacing: 3px;
 }
-
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .search-form {
   margin-right: 10px;
   margin-top: 4px;

@@ -6,6 +6,10 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import Policy from "./pages/Policy";
+import Catagories from "./pages/Catagories";
+import CartPage from "./pages/CartPage";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 const App = () => {
   return (
     <Routes>
@@ -13,6 +17,10 @@ const App = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/policy" element={<Policy />} />
+      <Route path="/cartpage" element={<CartPage />} />
+      <Route path="/catagories" element={<Catagories />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

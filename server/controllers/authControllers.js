@@ -27,7 +27,7 @@ export const registerController = async (req, res, next) => {
     const existingUser = await userModels.findOne({ email });
     if (existingUser) {
       return res.status({
-        success: true,
+        success: false,
         message: "User registered successfully",
       });
     }
@@ -48,7 +48,7 @@ export const registerController = async (req, res, next) => {
     });
   } catch (error) {
     console.log(error);
-    res.status({
+    res.status(201).send({
       success: false,
       error,
       message: "Error in register",

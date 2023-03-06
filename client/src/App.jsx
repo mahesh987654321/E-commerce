@@ -10,19 +10,24 @@ import Catagories from "./pages/Catagories";
 import CartPage from "./pages/CartPage";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/policy" element={<Policy />} />
-      <Route path="/cartpage" element={<CartPage />} />
-      <Route path="/catagories" element={<Catagories />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <div>
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/policy" element={<Policy />} />
+        <Route path="/cartpage" element={<CartPage />} />
+        <Route path="/catagories" element={<Catagories />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </div>
   );
 };
 

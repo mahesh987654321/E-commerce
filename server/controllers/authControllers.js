@@ -104,3 +104,36 @@ export const loginController = async (req, res, next) => {
     });
   }
 };
+
+export const forgotPassword = async (req, res, next) => {
+  try {
+    const { email, answer, newPassword } = req.body;
+    if (!email) {
+      res.status(400).send({ message: "email is required" });
+    }
+    if (!answer) {
+      res.status(400).send({ message: "Password is required" });
+    }
+    if (!newPassword) {
+      res.status(400).send({ message: "New Password is required" });
+    }
+    const user = await userModels.findOne({ email, answer });
+    if (!user) {
+      res
+        .status(400)
+        .send({ message: "Email in incorrect format", success: false });
+    }
+    const hashedPassword = await hashPassword(newPassword);
+    await userModels.findByIdAndUpdate(user.id, { password: hashedPassword });
+    res
+      .status(200)
+      .send({ message: "Email Reset Successfully", success: true });
+  } catch (error) {
+    console.log(error);
+    res.status(201).send({
+      message: "something went wrong",
+      success: false,
+      error: error,
+    });
+  }
+};

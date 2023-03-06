@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import '../../styles/auth.css'
+import "../../styles/auth.css";
 import { toast } from "react-toastify";
 const Register = () => {
   const [name, setName] = useState("");
@@ -112,6 +112,7 @@ const Register = () => {
               onChange={(e) => setAnswer(e.target.value)}
             />
           </div>
+         
           <button type="submit" className="btn btn-primary">
             REGISTER
           </button>

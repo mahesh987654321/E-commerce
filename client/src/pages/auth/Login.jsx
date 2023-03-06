@@ -3,12 +3,15 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout/Layout";
+import { useAuth } from "../../context/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -21,10 +24,16 @@ const Login = () => {
       );
       if (res.data.success) {
         toast.success(res.data.message);
+        localStorage.setItem("auth", JSON.stringify(res.data));
         navigate(location.state || "/");
       } else {
         toast.error(res.data.message);
       }
+      setAuth({
+        ...auth,
+        user: res.data.user,
+        token: res.data.token,
+      });
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong here");

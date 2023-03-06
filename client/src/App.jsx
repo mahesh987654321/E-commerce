@@ -12,6 +12,8 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Dashboard from "./pages/user/Dashboard";
+import Private from "./components/Routers/Private";
 const App = () => {
   return (
     <div>
@@ -19,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/cartpage" element={<CartPage />} />
@@ -26,6 +29,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/dashboard" element={<Private />}>
+          <Route path="" element={<Dashboard />} />
+        </Route>
       </Routes>
     </div>
   );

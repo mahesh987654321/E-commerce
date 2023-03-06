@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import userModels from "../models/userModels";
+import userModels from "../models/userModels.js";
 export const requireSignIn = (req, res, next) => {
   try {
     const decode = jwt.verify(req.headers.authorization, process.env.JWT_KEY);

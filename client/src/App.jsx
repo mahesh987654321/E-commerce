@@ -18,6 +18,14 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import AdminRoute from "./components/Routers/AdminRoute";
 
 import AdminDashboard from "./pages/Admin/AdminDashboard";
+import CreateCatagories from "./pages/Admin/CreateCatagories";
+import CreateProduct from "./pages/Admin/CreateProduct";
+import Users from "./pages/Admin/Users";
+import AdminOrders from "./pages/Admin/AdminOrders";
+import Products from "./pages/Admin/Products";
+import UpdateProducts from "./pages/Admin/UpdateProducts";
+import Orders from "./pages/user/Orders";
+import Profile from "./pages/user/Profile";
 const App = () => {
   return (
     <div>
@@ -36,9 +44,18 @@ const App = () => {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/dashboard" element={<Private />}>
           <Route path="user" element={<Dashboard />} />
+          <Route path="user/orders" element={<Orders />} />
+          <Route path="user/profile" element={<Profile />} />
         </Route>
+        {/* admin */}
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/create-category" element={<CreateCatagories />} />
+          <Route path="admin/create-product" element={<CreateProduct />} />
+          <Route path="admin/product/:slug" element={<UpdateProducts />} />
+          <Route path="admin/products" element={<Products />} />
+          <Route path="admin/users" element={<Users />} />
+          <Route path="admin/orders" element={<AdminOrders />} />
         </Route>
       </Routes>
     </div>

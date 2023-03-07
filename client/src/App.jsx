@@ -15,6 +15,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./pages/user/Dashboard";
 import Private from "./components/Routers/Private";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import AdminRoute from "./components/Routers/AdminRoute";
+
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 const App = () => {
   return (
     <div>
@@ -32,7 +35,10 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/dashboard" element={<Private />}>
-          <Route path="" element={<Dashboard />} />
+          <Route path="user" element={<Dashboard />} />
+        </Route>
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </div>

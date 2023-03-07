@@ -12,6 +12,7 @@ specifiers:
   mongoose: ^7.0.0
   morgan: ^1.10.0
   react-icons: ^4.8.0
+  slugify: ^1.6.5
 
 dependencies:
   bcrypt: 5.1.0
@@ -25,6 +26,7 @@ dependencies:
   mongoose: 7.0.0
   morgan: 1.10.0
   react-icons: 4.8.0
+  slugify: 1.6.5
 
 packages:
 
@@ -1025,6 +1027,11 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+    dev: false
+
+  /slugify/1.6.5:
+    resolution: {integrity: sha512-8mo9bslnBO3tr5PEVFzMPIWwWnipGS0xVbYf65zxDqfNwmzYn1LpiKNrR6DlClusuvo+hDHd1zKpmfAe83NQSQ==}
+    engines: {node: '>=8.0.0'}
     dev: false
 
   /smart-buffer/4.2.0:

@@ -32,7 +32,7 @@ export const categoryController = async (req, res) => {
     });
   }
 };
-
+// category updated
 export const updateController = async (req, res) => {
   try {
     const { name } = req.body;
@@ -53,10 +53,12 @@ export const updateController = async (req, res) => {
     res.status(500).send({
       success: false,
       error,
-      message: "Error in Category",
+      message: "Error in update Category",
     });
   }
 };
+
+// category delete
 export const categoryDeleted = async (req, res) => {
   try {
     const { id } = req.params;
@@ -71,6 +73,48 @@ export const categoryDeleted = async (req, res) => {
       success: false,
       error,
       message: "Error in Category",
+    });
+  }
+};
+
+// get all category
+
+export const getCategory = async (req, res) => {
+  try {
+    const findCategory = await catagoryModels.find({});
+    res.status(200).send({
+      message: "all Category list",
+      findCategory,
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while getting all categories",
+    });
+  }
+};
+
+// single category
+
+export const getSingleCategory = async (req, res) => {
+  try {
+    const singleCategory = await catagoryModels.findOne({
+      slug: req.params.slug,
+    });
+    res.status(200).send({
+      success: true,
+      message: "Get SIngle Category SUccessfully",
+      singleCategory,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error while getting all categories",
     });
   }
 };
